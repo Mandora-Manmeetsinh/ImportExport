@@ -69,17 +69,6 @@ const InquiryModal = ({ product, isOpen, onClose }) => {
                             />
                         </div>
 
-                        {/* <div className="form-group">
-                            <label>Email Address</label>
-                            <input
-                                type="email"
-                                value={formData.email}
-                                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                required
-                                placeholder="Enter your email"
-                            />
-                        </div> */}
-
                         <div className="form-group">
                             <label>Phone Number</label>
                             <input

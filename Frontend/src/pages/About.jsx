@@ -82,7 +82,7 @@ const About = () => {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.1 }}
                     >
-                        SHOP ALL
+                        ABOUT US
                     </motion.h1>
                     <motion.p
                         className="hero-subtitle-new"
@@ -105,7 +105,7 @@ const About = () => {
                         <div className="story-content">
                             <h2>Crafting Excellence Since 2010</h2>
                             <p>
-                                KnitKnot began with a simple vision: to bring the finest craftsmanship to the global fashion market. Over the past 14 years, we have grown from a small workshop to a leading clothing export company.
+                                JALAGARMENT began with a simple vision: to bring the finest craftsmanship to the global fashion market. Over the past 14 years, we have grown from a small workshop to a leading clothing export company.
                             </p>
                             <p>
                                 Our commitment to quality, combined with our understanding of international fashion trends, has made us a trusted partner for retailers and brands across 25+ countries.
@@ -231,7 +231,7 @@ const About = () => {
                             <h2>Premium Export Quality</h2>
                             <p>Serving international markets with quality garments since 2010. Trusted by 500+ clients across 25+ countries.</p>
                             <a
-                                href="https://wa.me/9313029938?text=Hello! I'm interested in your premium export quality garments."
+                                href="https://wa.me/8511624907?text=Hello! I'm interested in your premium export quality garments."
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="btn-whatsapp-about"

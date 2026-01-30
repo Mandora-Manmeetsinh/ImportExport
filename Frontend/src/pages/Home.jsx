@@ -1,14 +1,45 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Globe, ShieldCheck, MessageCircle, ArrowUpRight, Award, CheckCircle, Package } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { ProductContext } from '../context/ProductContext';
 import WhatsAppButton from '../components/WhatsAppButton';
 import './Home.css';
 
+const Counter = ({ target, suffix = "+" }) => {
+    const [count, setCount] = React.useState(0);
+    const nodeRef = React.useRef(null);
+    const isInView = useInView(nodeRef, { once: true });
+
+    React.useEffect(() => {
+        if (isInView) {
+            let start = 0;
+            const end = parseInt(target.replace(/\D/g, ''));
+            if (start === end) return;
+
+            let totalMiliseconds = 2000;
+            let incrementTime = (totalMiliseconds / end);
+
+            let timer = setInterval(() => {
+                start += 1;
+                setCount(start);
+                if (start === end) clearInterval(timer);
+            }, incrementTime);
+
+            return () => clearInterval(timer);
+        }
+    }, [isInView, target]);
+
+    return (
+        <span ref={nodeRef} className="stat-number">
+            {count}{suffix}
+        </span>
+    );
+};
+
 const Home = () => {
     const { products, settings, loading } = useContext(ProductContext);
-    const whatsappNumber = settings?.whatsappNumber || '9313029938';
+    const whatsappNumber = settings?.whatsappNumber || '8511624907';
 
     const categories = [
         { name: "MEN'S WEAR", img: "/src/assets/men-category.png", path: "/catalog?category=Men's Wear" },
@@ -31,9 +62,9 @@ const Home = () => {
         { code: "ZA", name: "South Africa", region: "AFRICA" }
     ];
 
-    const displayBestSellers = products.filter(p => p.isFeatured).slice(0, 4).length > 0
-        ? products.filter(p => p.isFeatured).slice(0, 4)
-        : products.slice(0, 4);
+    const featuredProducts = products.filter(p => p.isFeatured);
+    const otherProducts = products.filter(p => !p.isFeatured);
+    const displayBestSellers = [...featuredProducts, ...otherProducts].slice(0, 8);
 
     return (
         <motion.div
@@ -74,19 +105,19 @@ const Home = () => {
                 <div className="hero-stats-bar">
                     <div className="container stats-container">
                         <div className="stat-box">
-                            <span className="stat-number">25+</span>
+                            <Counter target="25" />
                             <span className="stat-label">COUNTRIES</span>
                         </div>
                         <div className="stat-box">
-                            <span className="stat-number">14+</span>
+                            <Counter target="14" />
                             <span className="stat-label">YEARS</span>
                         </div>
                         <div className="stat-box">
-                            <span className="stat-number">500+</span>
+                            <Counter target="500" />
                             <span className="stat-label">CLIENTS</span>
                         </div>
                         <div className="stat-box">
-                            <span className="stat-number">1M+</span>
+                            <Counter target="1000" suffix="K+" />
                             <span className="stat-label">PIECES</span>
                         </div>
                     </div>
@@ -178,6 +209,9 @@ const Home = () => {
 
                     <div className="markets-footer">
                         <p>And many more countries across <span>25+ nations</span> worldwide</p>
+                        <Link to="/markets" className="explore-markets-link">
+                            Explore All Markets <ArrowUpRight size={18} />
+                        </Link>
                     </div>
                 </div>
             </section>

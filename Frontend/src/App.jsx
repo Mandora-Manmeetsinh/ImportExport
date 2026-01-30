@@ -8,7 +8,7 @@ import Catalog from './pages/Catalog';
 import ProductDetail from './pages/ProductDetail';
 import Login from './pages/Login';
 import AdminDashboard from './pages/AdminDashboard';
-import VideoGallery from './pages/VideoGallery';
+import Markets from './pages/Markets';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -16,25 +16,30 @@ import ScrollToTop from './components/ScrollToTop';
 
 function AppContent() {
   const location = useLocation();
+  const isAdminRoute = location.pathname.startsWith('/admin') ||
+    location.pathname === '/jala-admin-portal-2025' ||
+    location.pathname === '/login';
+
   return (
     <div className="app">
-      <Navbar />
+      {!isAdminRoute && <Navbar />}
       <main>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/catalog" element={<Catalog />} />
             <Route path="/product/:id" element={<ProductDetail />} />
-            <Route path="/video-gallery" element={<VideoGallery />} />
+            <Route path="/markets" element={<Markets />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/jala-admin-portal-2025" element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/admin/*" element={<AdminDashboard />} />
           </Routes>
         </AnimatePresence>
       </main>
-      <Footer />
-      <WhatsAppButton />
+      {!isAdminRoute && <Footer />}
+      {!isAdminRoute && <WhatsAppButton />}
     </div>
   );
 }

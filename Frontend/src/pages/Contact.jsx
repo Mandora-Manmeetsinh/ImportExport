@@ -9,7 +9,7 @@ const Contact = () => {
     const { settings } = useContext(ProductContext);
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
+        phone: '',
         subject: '',
         message: '',
     });
@@ -22,7 +22,7 @@ const Contact = () => {
         try {
             await axios.post('/api/inquiries', formData);
             setSuccess(true);
-            setFormData({ name: '', email: '', subject: '', message: '' });
+            setFormData({ name: '', phone: '', subject: '', message: '' });
             setTimeout(() => setSuccess(false), 5000);
         } catch (error) {
             alert(error.response?.data?.message || 'Failed to send message');
@@ -31,7 +31,7 @@ const Contact = () => {
     };
 
     const whatsappNumber = settings?.whatsappNumber || '8511624907';
-    const companyEmail = settings?.companyEmail || EMAIL_ADDRESS;
+    const companyEmail = settings?.companyEmail || 'contact@jalagarment.com';
     const companyPhone = settings?.companyPhone || '+91 8511624907';
     const companyAddress = settings?.companyAddress || 'D-25, Bussa locality, Bharuch';
 
@@ -45,7 +45,7 @@ const Contact = () => {
         >
             {/* Hero Section */}
             <section className="contact-hero-new">
-                <div className="container">
+                <div className="container" style={{ fontWeight: 'bold' }}>
                     <motion.h1
                         initial={{ y: 20, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
@@ -66,7 +66,7 @@ const Contact = () => {
 
             {/* Contact Info Cards */}
             <section className="contact-info-cards">
-                <div className="container">
+                <div className="container" style={{ fontWeight: 'bold' }}   >
                     <div className="info-cards-grid">
                         <div className="info-card-new">
                             <Mail size={24} />
@@ -94,11 +94,11 @@ const Contact = () => {
 
             {/* Team Image and Contact Form Section */}
             <section className="contact-main-section section-padding">
-                <div className="container">
+                <div className="container" style={{ fontWeight: 'bold' }} >
                     <div className="contact-main-grid">
                         {/* Left: Team Image */}
                         <div className="team-image-section">
-                            <img src="/src/assets/contact-team.jpg" alt="GALA GARMENT Team" />
+                            <img src="/src/assets/contact-team.png" alt="JALAGARMENT Team" />
                         </div>
 
                         {/* Right: Contact Form */}
@@ -115,11 +115,11 @@ const Contact = () => {
                                         placeholder="Enter Name"
                                     />
                                     <input
-                                        type="email"
-                                        value={formData.email}
-                                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                        type="tel"
+                                        value={formData.phone}
+                                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                                         required
-                                        placeholder="Your Email"
+                                        placeholder="Mobile Number"
                                     />
                                 </div>
                                 <input

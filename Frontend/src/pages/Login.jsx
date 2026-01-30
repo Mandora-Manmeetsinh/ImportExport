@@ -29,42 +29,66 @@ const Login = () => {
     };
 
     return (
-        <div className="login-page container">
-            <div className="login-card">
-                <h2>Admin Login</h2>
-                <p>Enter your credentials to access the dashboard</p>
-
-                {error && (
-                    <div className="error-message" style={{ color: 'var(--error-color)', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px', justifyContent: 'center' }}>
-                        <AlertCircle size={18} /> {error}
+        <div className="login-page">
+            <div className="login-container">
+                <div className="login-branding">
+                    <div className="branding-content">
+                        <h1>JALA</h1>
+                        <p>GARMENT & TEXTILES</p>
+                        <div className="branding-badge">ADMIN PORTAL</div>
                     </div>
-                )}
+                </div>
 
-                <form onSubmit={handleSubmit}>
-                    <div className="form-group">
-                        <label><Mail size={18} /> Email Address</label>
-                        <input
-                            type="email"
-                            placeholder="admin@elitewear.com"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
+                <div className="login-form-side">
+                    <div className="login-card">
+                        <header className="login-header">
+                            <h2>Welcome back</h2>
+                            <p>Enter your credentials to manage the export portal.</p>
+                        </header>
+
+                        {error && (
+                            <div className="error-alert">
+                                <AlertCircle size={18} /> <span>{error}</span>
+                            </div>
+                        )}
+
+                        <form onSubmit={handleSubmit} className="premium-form">
+                            <div className="form-group">
+                                <label><Mail size={16} /> Email Address</label>
+                                <div className="input-wrapper">
+                                    <input
+                                        type="email"
+                                        placeholder="admin@jalagarment.com"
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="form-group">
+                                <label><Lock size={16} /> Password</label>
+                                <div className="input-wrapper">
+                                    <input
+                                        type="password"
+                                        placeholder="••••••••"
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        required
+                                    />
+                                </div>
+                            </div>
+
+                            <button type="submit" className="btn-portal-login">
+                                Sign In to Dashboard
+                            </button>
+                        </form>
+
+                        <footer className="login-footer">
+                            <p>© 2026 Jala Garment & Textiles. Secure Portal.</p>
+                        </footer>
                     </div>
-
-                    <div className="form-group">
-                        <label><Lock size={18} /> Password</label>
-                        <input
-                            type="password"
-                            placeholder="••••••••"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </div>
-
-                    <button type="submit" className="btn-login">Login</button>
-                </form>
+                </div>
             </div>
         </div>
     );

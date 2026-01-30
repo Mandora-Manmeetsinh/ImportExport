@@ -11,13 +11,8 @@ const Catalog = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
 
-    const displayCategories = [
-        { _id: 'All', name: 'All Collection' },
-        { _id: 'Men\'s Wear', name: 'Men\'s Wear' },
-        { _id: 'Women\'s Wear', name: 'Women\'s Wear' },
-        { _id: 'Kids Wear', name: 'Kids Wear' },
-        { _id: 'Premium Fabrics', name: 'Premium Fabrics' }
-    ];
+    const allCollection = { _id: 'All', name: 'All Collection' };
+    const displayCategories = [allCollection, ...categories];
 
     const filteredProducts = products.filter(p => {
         const matchesSearch = p.name.toLowerCase().includes(searchTerm.toLowerCase());

@@ -1,0 +1,181 @@
+{
+  "categories": [
+    {
+      "id": "697c41161733b1b553a807eb",
+      "name": "Men's Wear"
+    },
+    {
+      "id": "697c41161733b1b553a807ec",
+      "name": "Women's Wear"
+    },
+    {
+      "id": "697c41161733b1b553a807ed",
+      "name": "Kids Wear"
+    },
+    {
+      "id": "697c41161733b1b553a807ee",
+      "name": "Premium Fabrics"
+    }
+  ],
+  "products": [
+    {
+      "name": "Premium Cotton Men's Shirt",
+      "catName": "Men's Wear",
+      "catId": "697c41161733b1b553a807eb"
+    },
+    {
+      "name": "Summer Floral Women's Dress",
+      "catName": "Women's Wear",
+      "catId": "697c41161733b1b553a807ec"
+    },
+    {
+      "name": "Kids Denim Jacket",
+      "catName": "Kids Wear",
+      "catId": "697c41161733b1b553a807ed"
+    },
+    {
+      "name": "Premium Linen Shirt",
+      "catName": "Men's Wear",
+      "catId": "697c41161733b1b553a807eb"
+    },
+    {
+      "name": "Slim Fit Khaki Chinos",
+      "catName": "Men's Wear",
+      "catId": "697c41161733b1b553a807eb"
+    },
+    {
+      "name": "Navy Wool Blazer",
+      "catName": "Men's Wear",
+      "catId": "697c41161733b1b553a807eb"
+    },
+    {
+      "name": "Silk Floral Maxi Dress",
+      "catName": "Women's Wear",
+      "catId": "697c41161733b1b553a807ec"
+    },
+    {
+      "name": "Tailored Executive Trousers",
+      "catName": "Women's Wear",
+      "catId": "697c41161733b1b553a807ec"
+    },
+    {
+      "name": "Cashmere Cable Knit",
+      "catName": "Women's Wear",
+      "catId": "697c41161733b1b553a807ec"
+    },
+    {
+      "name": "Organic Cotton T-Shirt Set",
+      "catName": "Kids Wear",
+      "catId": "697c41161733b1b553a807ed"
+    },
+    {
+      "name": "Durable Denim Dungarees",
+      "catName": "Kids Wear",
+      "catId": "697c41161733b1b553a807ed"
+    },
+    {
+      "name": "Floral Lace Party Dress",
+      "catName": "Kids Wear",
+      "catId": "697c41161733b1b553a807ed"
+    },
+    {
+      "name": "Egyptian Cotton Roll",
+      "catName": "Premium Fabrics",
+      "catId": "697c41161733b1b553a807ee"
+    },
+    {
+      "name": "Bamboo Linen Blend",
+      "catName": "Premium Fabrics",
+      "catId": "697c41161733b1b553a807ee"
+    },
+    {
+      "name": "Recycled Tech Knit",
+      "catName": "Premium Fabrics",
+      "catId": "697c41161733b1b553a807ee"
+    },
+    {
+      "name": "Winter Puffer Jacket"
+    },
+    {
+      "name": "Tropical Beach Kaftan"
+    },
+    {
+      "name": "Autumn Cashmere Scarf"
+    },
+    {
+      "name": "Deep Navy Linen Shirt",
+      "catName": "Men's Wear",
+      "catId": "697c41161733b1b553a807eb"
+    },
+    {
+      "name": "Slim Fit Khaki Chinos",
+      "catName": "Men's Wear",
+      "catId": "697c41161733b1b553a807eb"
+    },
+    {
+      "name": "Tailored Business Blazer",
+      "catName": "Men's Wear",
+      "catId": "697c41161733b1b553a807eb"
+    },
+    {
+      "name": "Pure White Oxford Shirt",
+      "catName": "Men's Wear",
+      "catId": "697c41161733b1b553a807eb"
+    },
+    {
+      "name": "Forest Green Pique Polo",
+      "catName": "Men's Wear",
+      "catId": "697c41161733b1b553a807eb"
+    },
+    {
+      "name": "Midnight Silk Maxi Dress",
+      "catName": "Women's Wear",
+      "catId": "697c41161733b1b553a807ec"
+    },
+    {
+      "name": "Cream Cashmere Cardigan",
+      "catName": "Women's Wear",
+      "catId": "697c41161733b1b553a807ec"
+    },
+    {
+      "name": "High-Waist Cotton Trousers",
+      "catName": "Women's Wear",
+      "catId": "697c41161733b1b553a807ec"
+    },
+    {
+      "name": "Vibrant Summer Kaftan",
+      "catName": "Women's Wear",
+      "catId": "697c41161733b1b553a807ec"
+    },
+    {
+      "name": "Floral Silk Blouse",
+      "catName": "Women's Wear",
+      "catId": "697c41161733b1b553a807ec"
+    },
+    {
+      "name": "Classic Denim Dungarees",
+      "catName": "Kids Wear",
+      "catId": "697c41161733b1b553a807ed"
+    },
+    {
+      "name": "Organic Cotton Play Set",
+      "catName": "Kids Wear",
+      "catId": "697c41161733b1b553a807ed"
+    },
+    {
+      "name": "Pastel Party Dress",
+      "catName": "Kids Wear",
+      "catId": "697c41161733b1b553a807ed"
+    },
+    {
+      "name": "Mustard Cashmere Scarf",
+      "catName": "Women's Wear",
+      "catId": "697c41161733b1b553a807ec"
+    },
+    {
+      "name": "Unisex Puffer Jacket",
+      "catName": "Men's Wear",
+      "catId": "697c41161733b1b553a807eb"
+    }
+  ]
+}

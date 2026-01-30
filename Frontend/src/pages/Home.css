@@ -334,11 +334,28 @@
 .markets-footer {
     font-size: 1rem;
     color: #999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
 }
 
-.markets-footer span {
-    color: #D4AF37;
-    font-weight: 700;
+.explore-markets-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #c5a059;
+    transition: all 0.3s ease;
+}
+
+.explore-markets-link:hover {
+    color: #c5a059;
+    gap: 12px;
 }
 
 /* Best Sellers Section */

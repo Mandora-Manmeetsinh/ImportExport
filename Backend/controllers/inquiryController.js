@@ -5,11 +5,10 @@ const Inquiry = require('../models/Inquiry');
 // @access  Public
 const createInquiry = async (req, res) => {
     try {
-        const { name, email, phone, message, product } = req.body;
+        const { name, phone, message, product } = req.body;
 
         const inquiry = await Inquiry.create({
             name,
-            email,
             phone,
             message,
             product,

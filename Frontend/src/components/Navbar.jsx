@@ -30,7 +30,7 @@ const Navbar = () => {
                         <div className={`nav-links ${isOpen ? 'active' : ''}`}>
                             <Link to="/" onClick={() => setIsOpen(false)}>HOME</Link>
                             <Link to="/catalog" onClick={() => setIsOpen(false)}>SHOP</Link>
-                            <Link to="/video-gallery" onClick={() => setIsOpen(false)}>VIDEOS</Link>
+                            <Link to="/markets" onClick={() => setIsOpen(false)}>MARKETS</Link>
                             <Link to="/about" onClick={() => setIsOpen(false)}>ABOUT</Link>
                             <Link to="/contact" onClick={() => setIsOpen(false)}>CONTACT</Link>
                         </div>
