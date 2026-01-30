@@ -1,0 +1,7 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="100" fill="#1a1a1a"/>
+  <path d="M150 150H250C280 150 300 170 300 200V312C300 342 280 362 250 362H150V150Z" stroke="#c5a059" stroke-width="20"/>
+  <path d="M210 210H362C392 210 412 230 412 260V312C412 342 392 362 362 362H210V210Z" stroke="#c5a059" stroke-width="20" opacity="0.6"/>
+  <text x="50%" y="65%" text-anchor="middle" fill="#fff" font-family="Serif" font-size="180" font-weight="900">J</text>
+  <text x="50%" y="90%" text-anchor="middle" fill="#c5a059" font-family="Sans-Serif" font-size="24" letter-spacing="10">EST. 2010</text>
+</svg>

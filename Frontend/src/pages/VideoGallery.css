@@ -1,0 +1,324 @@
+.video-gallery-page {
+    padding: 80px 20px;
+}
+
+.video-gallery-page .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.video-gallery-page .section-header h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.video-gallery-page .section-header h1 span {
+    color: var(--accent-color);
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+.video-card {
+    background: #fff;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.video-card:hover {
+    transform: translateY(-10px);
+}
+
+.video-wrapper {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: #000;
+}
+
+.video-wrapper video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    background: rgba(212, 175, 55, 0.8);
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition);
+    pointer-events: none;
+}
+
+.video-card:hover .play-overlay {
+    opacity: 1;
+}
+
+.video-info {
+    padding: 25px;
+}
+
+.video-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.video-info p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.trust-section {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 80px 40px;
+    border-radius: var(--border-radius);
+    text-align: center;
+}
+
+.trust-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.trust-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+.trust-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .video-gallery-page .section-header h1 {
+        font-size: 2.2rem;
+    }
+}
+
+.video-hero-minimal {
+    background: #f9f9f9;
+    padding: 120px 0 80px;
+    text-align: center;
+}
+
+.video-hero-minimal .subtitle {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+}
+
+.video-hero-minimal h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 900;
+    line-height: 1.1;
+}
+
+.video-hero-minimal h1 span {
+    font-weight: 300;
+}
+
+.video-grid-minimal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+}
+
+.video-card-minimal {
+    background: #fff;
+    transition: var(--transition);
+}
+
+.video-wrapper-minimal {
+    position: relative;
+    aspect-ratio: 16/9;
+    background: #000;
+    overflow: hidden;
+}
+
+.video-wrapper-minimal video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-badge-minimal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px 15px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary-color);
+}
+
+.video-info-minimal {
+    padding: 25px 0;
+}
+
+.video-info-minimal .cat-tag {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.video-info-minimal h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.no-videos-minimal {
+    text-align: center;
+    padding: 100px 0;
+    color: #999;
+}
+
+.transparency-section-minimal {
+    background: #f9f9f9;
+    margin-top: 100px;
+}
+
+.transparency-layout-minimal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+}
+
+.transparency-content-minimal .subtitle {
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.transparency-content-minimal h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+}
+
+.transparency-content-minimal p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.transparency-features-minimal {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.feature-item-minimal {
+    display: flex;
+    gap: 20px;
+}
+
+.feature-item-minimal svg {
+    color: var(--accent-color);
+    flex-shrink: 0;
+}
+
+.feature-item-minimal h4 {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+.feature-item-minimal p {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 0;
+}
+
+.transparency-visual-minimal {
+    position: relative;
+    aspect-ratio: 1/1;
+    background: url('https://images.unsplash.com/photo-1558603668-6570496b66f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(1);
+}
+
+.visual-overlay-box {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 40px;
+    max-width: 300px;
+}
+
+.visual-overlay-box h3 {
+    font-size: 1.2rem;
+    margin: 20px 0 10px;
+}
+
+.visual-overlay-box p {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+
+@media (max-width: 992px) {
+    .video-grid-minimal {
+        grid-template-columns: 1fr;
+    }
+
+    .transparency-layout-minimal {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .transparency-content-minimal h2 {
+        font-size: 2.2rem;
+    }
+
+    .visual-overlay-box {
+        position: static;
+        max-width: 100%;
+    }
+}

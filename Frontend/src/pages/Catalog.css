@@ -1,0 +1,249 @@
+.catalog-page {
+    padding-bottom: 100px;
+    background-color: #f8f8f8;
+    /* Light off-white background */
+    min-height: 100vh;
+}
+
+.catalog-hero {
+    padding: 120px 0 60px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.catalog-hero h1 {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    font-weight: 500;
+    color: #000;
+    letter-spacing: -0.02em;
+}
+
+.catalog-hero p {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.catalog-controls-minimal {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.category-filters-minimal {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.filter-btn-minimal {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #999;
+    padding: 10px 20px;
+    transition: var(--transition);
+    border: none;
+    background: transparent;
+}
+
+.filter-btn-minimal:hover {
+    color: #000;
+}
+
+.filter-btn-minimal.active {
+    background: #000;
+    color: #fff;
+}
+
+.catalog-main {
+    margin-top: 20px;
+}
+
+.product-grid-minimal {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 60px 20px;
+}
+
+.product-card-minimal {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.product-img-minimal {
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: #eee;
+    margin-bottom: 20px;
+}
+
+.product-img-minimal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.product-card-minimal:hover .product-img-minimal img {
+    transform: scale(1.05);
+}
+
+.product-info-minimal {
+    text-align: center;
+}
+
+.product-category-tag {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #999;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+}
+
+.product-title-minimal {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 12px;
+    text-transform: none;
+}
+
+.product-action-minimal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-minimal,
+.no-results-minimal {
+    text-align: center;
+    padding: 100px 0;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.btn-reset {
+    margin-top: 20px;
+    padding: 10px 25px;
+    background: #000;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .product-grid-minimal {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .catalog-hero h1 {
+        font-size: 4rem;
+    }
+
+    .category-filters-minimal {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .product-grid-minimal {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog-hero {
+        padding: 80px 0 40px;
+    }
+
+    .catalog-hero h1 {
+        font-size: 3rem;
+    }
+
+    .product-grid-minimal {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+/* Premium Banner Section */
+.premium-banner-section {
+    position: relative;
+    height: 420px;
+    display: flex;
+    align-items: center;
+    margin: 80px auto;
+    background:
+        linear-gradient(to right,
+            rgba(0, 0, 0, 0.85) 30%,
+            rgba(0, 0, 0, 0.6) 50%,
+            rgba(0, 0, 0, 0.2) 70%,
+            rgba(0, 0, 0, 0.05) 100%),
+        url('/src/assets/banner-bg.png');
+    background-size: cover;
+    background-position: right center;
+    overflow: hidden;
+}
+
+.premium-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+    margin-left: -80px;
+    color: #fff;
+}
+
+.premium-banner-content h2 {
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-transform: none;
+}
+
+.premium-banner-content p {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    max-width: 500px;
+}
+
+.premium-banner-content .btn-view-collection {
+    background: #fff;
+    color: #000;
+    padding: 12px 25px;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .premium-banner-section {
+        height: auto;
+        padding: 80px 0;
+        background-position: center;
+    }
+
+    .premium-banner-content {
+        margin-left: 0;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .premium-banner-content h2 {
+        font-size: 2.5rem;
+    }
+}

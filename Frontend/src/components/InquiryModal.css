@@ -1,0 +1,173 @@
+.inquiry-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    backdrop-filter: blur(5px);
+}
+
+.inquiry-modal-content {
+    background: #fff;
+    width: 100%;
+    max-width: 550px;
+    border-radius: var(--border-radius);
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.modal-header h2 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.close-btn:hover {
+    color: var(--error-color);
+    transform: rotate(90deg);
+}
+
+.product-summary {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    background: var(--secondary-color);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+}
+
+.product-summary img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.product-summary h4 {
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.product-summary p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.inquiry-modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inquiry-modal-content .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.inquiry-modal-content label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+.inquiry-modal-content input,
+.inquiry-modal-content textarea {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    transition: var(--transition);
+}
+
+.inquiry-modal-content input:focus,
+.inquiry-modal-content textarea:focus {
+    border-color: var(--accent-color);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.inquiry-modal-content .btn-submit {
+    padding: 15px;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+.inquiry-modal-content .btn-submit:hover {
+    background: var(--accent-color);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.inquiry-modal-content .btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.success-message {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    background: #4caf50;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin: 0 auto 20px;
+}
+
+.success-message h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.success-message p {
+    color: var(--text-light);
+}
+
+@media (max-width: 600px) {
+    .inquiry-modal-content {
+        padding: 25px;
+        margin: 20px;
+    }
+
+    .modal-header h2 {
+        font-size: 1.5rem;
+    }
+}
