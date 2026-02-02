@@ -1,0 +1,19 @@
+{
+    "version": 2,
+    "builds": [
+        {
+            "src": "server.js",
+            "use": "@vercel/node",
+            "env": {
+                "PORT": 3000,
+                "MONGODB_URI": "mongodb://localhost:27017/importexport",
+                "JWT_SECRET": "your-secret-key",
+                "JWT_EXPIRES_IN": "1d",
+                "JWT_ISS": "importexport",
+                "JWT_AUD": "importexport",
+                "JWT_ALG": "HS256",
+                "JWT_TYP": "JWT"
+            }
+        }
+    ]
+}

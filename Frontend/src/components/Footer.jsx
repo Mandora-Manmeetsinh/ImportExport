@@ -98,7 +98,7 @@ const Footer = () => {
                                     ))}
                                 </motion.div>
                             </div>
-                            <p className="brand-desc-new" style={{ fontSize: '1rem', fontWeight: '600', lineHeight: '1.6', fontWeight: 'bold' }}>
+                            <p className="brand-desc-new" style={{ fontSize: '1rem', lineHeight: '1.6', fontWeight: 'bold' }}>
                                 Serving international markets with quality garments since 2010. <br />
                                 Trusted by 500+ clients across 25+ countries.
                             </p>

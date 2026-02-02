@@ -81,13 +81,13 @@ const AdminDashboard = () => {
                         <input type="text" placeholder="Search products, inquiries..." />
                     </div>
                     <div className="header-actions">
-                        <div className="notification-bell">
+                        <Link to="/admin/notifications" className="notification-bell">
                             <MessageSquare size={20} />
-                            <span className="badge">3</span>
-                        </div>
-                        <div className="header-profile">
+                            <span className="badge">1</span>
+                        </Link>
+                        <Link to="/admin/profile" className="header-profile">
                             <img src={`https://ui-avatars.com/api/?name=${admin?.name}&background=1e293b&color=fff`} alt="" />
-                        </div>
+                        </Link>
                     </div>
                 </header>
 
@@ -97,6 +97,8 @@ const AdminDashboard = () => {
                         <Route path="/products" element={<ProductManagement />} />
                         <Route path="/categories" element={<CategoryManagement />} />
                         <Route path="/inquiries" element={<InquiryManagement />} />
+                        <Route path="/notifications" element={<NotificationManagement />} />
+                        <Route path="/profile" element={<ProfileManagement />} />
                         <Route path="/settings" element={<SettingsManagement />} />
                     </Routes>
                 </div>
@@ -166,6 +168,7 @@ const ProductManagement = () => {
     const { admin } = useContext(AuthContext);
     const [showForm, setShowForm] = useState(false);
     const [editingProduct, setEditingProduct] = useState(null);
+    const [selectedFilterCategory, setSelectedFilterCategory] = useState('All');
     const [formData, setFormData] = useState({
         name: '', description: '', price: '', category: '', countInStock: 0,
         images: [], video: { url: '', public_id: '' },
@@ -226,6 +229,24 @@ const ProductManagement = () => {
                     <Plus size={18} /> New Product
                 </button>
             </header>
+
+            <div className="admin-filter-bar">
+                <button
+                    className={`filter-btn ${selectedFilterCategory === 'All' ? 'active' : ''}`}
+                    onClick={() => setSelectedFilterCategory('All')}
+                >
+                    All Products
+                </button>
+                {categories.map(cat => (
+                    <button
+                        key={cat._id}
+                        className={`filter-btn ${selectedFilterCategory === cat._id ? 'active' : ''}`}
+                        onClick={() => setSelectedFilterCategory(cat._id)}
+                    >
+                        {cat.name}
+                    </button>
+                ))}
+            </div>
 
             {showForm && (
                 <div className="admin-modal">
@@ -342,32 +363,36 @@ const ProductManagement = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {products.map(p => (
-                            <tr key={p._id}>
-                                <td>
-                                    <div className="table-product-cell">
-                                        <img src={p.images?.[0]?.url} alt="" className="table-thumb" />
-                                        <div className="table-text-group">
-                                            <span className="font-bold">{p.name}</span>
-                                            <span className="text-muted text-xs">{p.fabricType || 'No Fabric Info'}</span>
+                        {products
+                            .filter(p => selectedFilterCategory === 'All' ||
+                                p.category?._id === selectedFilterCategory ||
+                                p.category === selectedFilterCategory)
+                            .map(p => (
+                                <tr key={p._id}>
+                                    <td>
+                                        <div className="table-product-cell">
+                                            <img src={p.images?.[0]?.url} alt="" className="table-thumb" />
+                                            <div className="table-text-group">
+                                                <span className="font-bold">{p.name}</span>
+                                                <span className="text-muted text-xs">{p.fabricType || 'No Fabric Info'}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                                <td><span className="category-tag">{p.category?.name}</span></td>
-                                <td className="font-semibold">${p.price}</td>
-                                <td>
-                                    <span className={`stock-badge ${p.countInStock > 0 ? 'in-stock' : 'out-of-stock'}`}>
-                                        {p.countInStock > 0 ? `${p.countInStock} Units` : 'Out of Stock'}
-                                    </span>
-                                </td>
-                                <td align="right">
-                                    <div className="table-actions">
-                                        <button className="btn-edit" onClick={() => setEditingProduct(p)} title="Edit"><Edit size={16} /></button>
-                                        <button className="btn-delete" onClick={() => deleteProduct(p._id, admin.token)} title="Delete"><Trash2 size={16} /></button>
-                                    </div>
-                                </td>
-                            </tr>
-                        ))}
+                                    </td>
+                                    <td><span className="category-tag">{p.category?.name}</span></td>
+                                    <td className="font-semibold">${p.price}</td>
+                                    <td>
+                                        <span className={`stock-badge ${p.countInStock > 0 ? 'in-stock' : 'out-of-stock'}`}>
+                                            {p.countInStock > 0 ? `${p.countInStock} Units` : 'Out of Stock'}
+                                        </span>
+                                    </td>
+                                    <td align="right">
+                                        <div className="table-actions">
+                                            <button className="btn-edit" onClick={() => setEditingProduct(p)} title="Edit"><Edit size={16} /></button>
+                                            <button className="btn-delete" onClick={() => deleteProduct(p._id, admin.token)} title="Delete"><Trash2 size={16} /></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))}
                     </tbody>
                 </table>
             </div>
@@ -490,6 +515,99 @@ const InquiryManagement = () => {
                         ))}
                     </tbody>
                 </table>
+            </div>
+        </div>
+    );
+};
+
+const NotificationManagement = () => {
+    const [notifications, setNotifications] = useState([]);
+    const { admin } = useContext(AuthContext);
+
+    useEffect(() => {
+        const fetchNotifications = async () => {
+            try {
+                const config = { headers: { Authorization: `Bearer ${admin.token}` } };
+                const { data } = await axios.get('/api/inquiries', config);
+                // Just use the latest 10 inquiries as "notifications" for now
+                setNotifications(data.slice(0, 10));
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        if (admin) fetchNotifications();
+    }, [admin]);
+
+    return (
+        <div className="admin-view">
+            <header className="view-header">
+                <div className="header-info">
+                    <h1>Recent Notifications</h1>
+                    <p>Track latest inquiries and system updates.</p>
+                </div>
+            </header>
+
+            <div className="notification-list-wrapper">
+                {notifications.length > 0 ? (
+                    notifications.map(n => (
+                        <div key={n._id} className="notification-item-card">
+                            <div className="notif-icon"><MessageSquare size={18} /></div>
+                            <div className="notif-content">
+                                <h4>New Inquiry from {n.name}</h4>
+                                <p>Interested in {n.product?.name || 'General Inquiry'}</p>
+                                <span className="notif-time">{new Date(n.createdAt).toLocaleString()}</span>
+                            </div>
+                            <Link to="/admin/inquiries" className="btn-view-notif">View Details</Link>
+                        </div>
+                    ))
+                ) : (
+                    <div className="no-data-notice">No new notifications.</div>
+                )}
+            </div>
+        </div>
+    );
+};
+
+const ProfileManagement = () => {
+    const { admin } = useContext(AuthContext);
+
+    return (
+        <div className="admin-view">
+            <header className="view-header">
+                <div className="header-info">
+                    <h1>Your Profile</h1>
+                    <p>Manage your account settings and preferences.</p>
+                </div>
+            </header>
+
+            <div className="profile-settings-grid">
+                <div className="profile-main-card">
+                    <div className="profile-avatar-large">
+                        <img src={`https://ui-avatars.com/api/?name=${admin?.name}&size=128&background=1e293b&color=fff`} alt="" />
+                    </div>
+                    <div className="profile-basic-info">
+                        <h2>{admin?.name}</h2>
+                        <span className="profile-role-badge">Super Admin</span>
+                        <p>{admin?.email}</p>
+                    </div>
+                </div>
+
+                <div className="profile-form-card">
+                    <h3>Account Security</h3>
+                    <form className="admin-form-root" onSubmit={(e) => e.preventDefault()}>
+                        <div className="form-group">
+                            <label>New Password</label>
+                            <input type="password" placeholder="Enter new password" />
+                        </div>
+                        <div className="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" placeholder="Confirm your password" />
+                        </div>
+                        <button type="button" className="btn-submit" onClick={() => alert('Password reset functionality is currently disabled for demo security.')}>
+                            Update Password
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     );
